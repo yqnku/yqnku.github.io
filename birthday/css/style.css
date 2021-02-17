@@ -11,12 +11,12 @@ body {
 }
 
 #elapseClock {
-    font-size: 18px;
+    font-size: 24px;
     margin-top: 10px;
     margin-bottom: 10px
 }
 
 #elapseClock .digit{
     font-family: "digit";
-    font-size: 36px
+    font-size: 48px
 }
