@@ -1,5 +1,30 @@
 $(function () {
+    $("#music").hide();
+
+    (function($) {
+        $.fn.typewriter = function() {
+            this.each(function() {
+                var $ele = $(this), str = $ele.html(), progress = 0;
+                $ele.html('');
+                var timer = setInterval(function() {
+                    var current = str.substr(progress, 1);
+                    if (current == '<') {
+                        progress = str.indexOf('>', progress) + 1;
+                    } else {
+                        progress++;
+                    }
+                    $ele.html(str.substring(0, progress) + (progress & 1 ? '_' : ''));
+                    if (progress >= str.length) {
+                        clearInterval(timer);
+                    }
+                }, 250);
+            });
+            return this;
+        };
+    })(jQuery);
+
     $("#greeting").click(function() {
+        $("#card").fadeOut(0);
         sentences = [
             "生活的热闹和生命的骄傲，一个都不少，生日快乐。",
             "流水今日，明月前身不念不惧，永葆天真。",
@@ -29,6 +54,7 @@ $(function () {
         ]
         $("#greeting-image").attr("src","images/" + Math.floor(Math.random() * 13) + ".jpg");
         $("#greeting-text").text(sentences[Math.floor(Math.random() * sentences.length)]);
+        $("#card").fadeIn(2000);
     });
 
     $("#greeting").click();
@@ -81,7 +107,12 @@ $(function () {
             //
         }
         else {
-            alert('只有生日当天才能开启哦')
+            //$("#music").show();
+            //$("#code").text("很早之前，从前从前，有个人爱你很久");
+            //$("#code").typewriter();
+            // alert('只有生日当天才能开启哦')
         }
     });
+
+    
 });
