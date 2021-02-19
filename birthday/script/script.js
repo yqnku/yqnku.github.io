@@ -1,5 +1,6 @@
 $(function () {
     $("#music").hide();
+    $("#open-birthday-page").hide();
 
     (function($) {
         $.fn.typewriter = function() {
@@ -17,7 +18,7 @@ $(function () {
                     if (progress >= str.length) {
                         clearInterval(timer);
                     }
-                }, 250);
+                }, 150);
             });
             return this;
         };
@@ -65,9 +66,7 @@ $(function () {
         var cur_month = today.getMonth();
         var cur_day = today.getDate();
         if (cur_month == 1 && cur_day == 28) {
-            $("#elapseClock").html(
-                "祝你生日快乐！！！"
-            );
+            $("#open-birthday-page").show();
         }
         else {
             if (cur_month > 1 || (cur_month == 1 && cur_day > 28)) {
@@ -100,19 +99,12 @@ $(function () {
     }, 500);
 
     $('#open-birthday-page').click(function(){
-        var today = new Date;
-        var cur_month = today.getMonth();
-        var cur_day = today.getDate();
-        if (cur_month == 1 && cur_day == 28) {
-            //
-        }
-        else {
-            //$("#music").show();
-            //$("#code").text("很早之前，从前从前，有个人爱你很久");
-            //$("#code").typewriter();
-            // alert('只有生日当天才能开启哦')
-        }
+        $("#music").show();
+        $("#code").html(
+            "<p>今天是 2021 年 2 月 28 日，在这个特殊的日子，我想用这个特殊的方式祝你生日快乐。</p>" + 
+            "<p>起初，我们在掌门圈相识，感谢掌门圈这个平台，让我们得以认识。2019 年 8 月 25 日，我们正式加了微信，成为了微信好友。但是后来的 271 天里都没有再联系。记得第一次联系是因为返校的事情，还记得你当时说你很喜欢广州。再后来，我们变得越来越熟悉，无话不谈。从 2020 年 5 月 22 日到 2021 年 2 月 28 日，这不长不短的 282 天，感谢有你。</p>" + 
+            "<p>最后，希望你每天都能开开心心的啦，不止是生日快乐，而是每天都快乐呀～</p>"
+        );
+        $("#code").typewriter();
     });
-
-    
 });

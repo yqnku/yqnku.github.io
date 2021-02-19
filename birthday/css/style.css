@@ -20,3 +20,8 @@ body {
     font-family: "digit";
     font-size: 48px
 }
+
+#code {
+    text-align: left;
+    font-size: 22px;
+}
