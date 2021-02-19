@@ -1,0 +1,27 @@
+@font-face {
+    font-family: digit;
+    src: url("digital-7_mono.ttf") format("truetype");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #ffe;
+    overflow: auto
+}
+
+#elapseClock {
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+#elapseClock .digit{
+    font-family: "digit";
+    font-size: 48px
+}
+
+#code {
+    text-align: left;
+    font-size: 22px;
+}
